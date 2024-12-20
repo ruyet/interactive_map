@@ -1,0 +1,600 @@
+@font-face {
+    font-family: Regular;
+    src: url(../fonts/static/Raleway-Regular.ttf);
+}
+
+@font-face {
+    font-family: Semibold;
+    src: url(../fonts/static/Raleway-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: Bold;
+    src: url(../fonts/static/Raleway-Bold.ttf);
+}
+
+
+/* Basic styles for body and html */
+
+body,
+html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: #f0f0f0; */
+    font-family: "Regular";
+}
+
+
+/* Container for the map and legend */
+
+#main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Container for the map with fixed dimensions */
+
+#map-container {
+    width: 1000px;
+    height: 1000px;
+    overflow: hidden;
+    position: relative;
+    background-color: white;
+    margin-bottom: 20px;
+    /* Space between map and legend */
+}
+
+
+/* Style for the map to enable dragging and zooming */
+
+#map {
+    cursor: grab;
+    transform-origin: center;
+    position: absolute;
+}
+
+
+/* Ensures the SVG map takes up the entire space */
+
+#svg-map {
+    display: block;
+}
+
+
+/* Ensures SVG is responsive */
+
+svg {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* Style for the markers on the map */
+
+.marker {
+    position: absolute;
+    width: 5%;
+    /* Adjust the size as needed */
+    height: 5%;
+    /* Adjust the size as needed */
+    background-image: url('../img/marker.png');
+    /* Path to your marker image */
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+
+/* Style for the small popup that appears on hover */
+
+.popup {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 3px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transform: translate(-40%, -40%);
+    display: none;
+    pointer-events: auto;
+    white-space: nowrap;
+}
+
+
+/* Display the popup when the marker is hovered */
+
+.marker:hover .popup {
+    display: block;
+}
+
+
+/* Style for the Google Maps link inside the popup */
+
+.google-maps-link {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+
+/* Style for the Google Maps icon */
+
+.google-maps-link img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+
+/* Style for the larger popup that shows detailed information */
+
+#large-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35%;
+    height: 80%;
+    background-color: white;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    display: none;
+    z-index: 1000;
+    overflow: auto;
+}
+
+
+/* Style for the close button of the large popup */
+
+#large-popup-close {
+    position: fixed;
+    top: 10%;
+    right: 30%;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    display: none;
+    /* Hide by default */
+}
+
+
+/*little 'x' shaped button to close the popup card */
+
+.close-button {
+    position: absolute;
+    top: 4%;
+    /* Adjust to position it closer vertically */
+    /* right: 90%; */
+    /* Adjust to position it closer horizontally */
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    z-index: 2;
+    background-color: #e30e13;
+    width: 25px;
+}
+
+span {
+    text-align: center;
+}
+
+
+/* Legend or guide for the colors of the map */
+
+.legend-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /* Add space between map and legend */
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    row-gap: 12px;
+    column-gap: 45px;
+    justify-content: center;
+}
+
+
+/* Position between colored item and text */
+
+.legend-item {
+    display: flex;
+    align-items: center;
+}
+
+
+/* Sets the shape of colored part of legend */
+
+.legend-color {
+    height: 18px;
+    width: 60px;
+    border-radius: 50px;
+    margin-right: 10px;
+}
+
+
+/* Sets the style for the text part of legend */
+
+.legend-text {
+    font-size: 18px;
+    color: black;
+}
+
+
+/* CSS of Stefan */
+
+a {
+    all: unset;
+}
+
+.background-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: url(../assets/background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    color: black;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    margin: 3rem;
+    color: white;
+}
+
+.center-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 25rem;
+    color: white;
+
+}
+
+.homepage-text {
+    width: 40%;
+    color: white;
+    line-height: 1.8;
+    padding: 20px;
+}
+
+.begin-button {
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 5rem;
+    width: 10rem;
+    height: auto;
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10rem;
+    transition: 0.3s ease, color 0.3s ease;
+    
+}
+
+.begin-button p {
+    color: rgb(255, 255, 255);
+    transform: color 0.3s ease;
+}
+
+.begin-button:hover {
+    background-color: white;
+}
+
+.begin-button:hover p {
+    color: black;
+}
+
+.begin-button p {
+    margin: 0;
+}
+
+.begin-button img {
+    margin-top: 0.5rem;
+}
+
+.begin-button+img {
+    transition: 0.3s ease;
+}
+
+.begin-button:hover+img {
+    transform: translateY(10px);
+}
+
+
+/* button to trigger pop-up */
+
+#popupButton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.popup.open {
+    display: flex;
+    animation: smooth-open 1s ease forwards;
+}
+
+.popup.close {
+    animation: smooth-close 1s ease forwards;
+    display: flex;
+    /* Ensure it stays visible during the closing animation */
+}
+
+
+/* styling for popup card */
+
+.popup .content {
+    height: 90%;
+    width: 50%;
+    background-color: rgb(255, 255, 255);
+    overflow-x: hidden;
+    overflow-y: auto;
+    /* Added for close button positioning */
+}
+
+
+/* main container of grey card and background banner */
+
+.Featured_Content {
+    display: flex;
+    position: relative;
+}
+
+
+/* styling for grey card */
+
+.Featured_Container {
+    background-color: #e30e13;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    min-width: 30px;
+}
+
+.video {
+    min-width: 30px;
+    width: 100%;
+    height: 410px;
+}
+
+.bar {
+    background-color: #e30e13;
+    width: 100%;
+    height: 5px;
+}
+
+
+/* styling for container with the article text */
+
+.Article_Content_Box {
+    background-color: rgb(255, 255, 255);
+    position: relative;
+}
+
+.Article_Content {
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.Article_Text {
+    font-size: medium;
+    line-height: 22px;
+}
+
+.articleImg {
+    float: right;
+    margin: 15px;
+    width: 270px;
+    height: 400px;
+}
+
+.articleImgHelmut {
+     float: right;
+    margin: 15px;
+    width: 270px;
+    height: 300px;
+}
+
+.articleImgMaurice {
+    float: right;
+    margin: 15px;
+    width: 270px;
+    height: 250px;
+}
+
+.articleImgAnne {
+    float: right;
+    margin: 15px;
+    width: 300px;
+    height: 350px;
+}
+
+.articleImgOyster {
+    float: right;
+    margin: 15px;
+    width: 350px;
+    height: 250px;
+}
+
+.articleImgLoomLight {
+    float: right;
+    margin: 15px;
+    width: 300px;
+    height: 280px;
+}
+
+.subtext {
+    float: right;
+}
+
+.ArticleImg2 {
+    width: 100%;
+    padding-top: 20px;
+}
+
+
+/* Scrollbar styling */
+
+
+/* total width */
+
+.popup .content::-webkit-scrollbar {
+    background-color: #fff;
+    width: 16px;
+}
+
+
+/* background of the scrollbar except button or resizer */
+
+.popup .content::-webkit-scrollbar-track {
+    background-color: #fff;
+}
+
+
+/* scrollbar itself */
+
+.popup .content::-webkit-scrollbar-thumb {
+    background-color: #babac0;
+    border-radius: 16px;
+    border: 4px solid #fff;
+}
+
+
+/* set button(top and bottom of the scrollbar) */
+
+.popup .content::-webkit-scrollbar-button {
+    display: none;
+}
+
+
+/* Existing keyframes for opening the popup */
+
+@keyframes smooth-open {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* New keyframes for closing the popup */
+
+@keyframes smooth-close {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+h1 {
+    margin: 0;
+}
+
+h2 {
+    margin: 0;
+    text-align: left;
+}
+
+p {
+    font-size: x-large;
+    text-align: justify;
+    margin: 0;
+}
+
+
+/* ZOOM BUTTON */
+
+
+/* Overall button position. Using flex for stacking the buttons. */
+
+.zoom-button-container {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    /* Creates space between two buttons. */
+    margin: 1px 0;
+    /* Height of both buttons. */
+    height: 60px;
+    /* Width of both buttons. */
+    width: 30px;
+    /* Font size for + and - inside of the buttons. */
+    font-size: 25px;
+    /* This is so that + and - are vertically centered inside of the buttons. */
+    line-height: 20px;
+    /* Horizontally center + and -. */
+    text-align: center;
+    cursor: pointer;
+    /* No border and radius to get the shape of the button (rounding corns). */
+    border: none;
+    border-radius: 50px;
+    /* Styling color wise for buttons. */
+    background: #E30E13;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the logo container */
+#logo-container {
+    position: absolute;
+    top: 30px; /* Adjust as needed */
+    left: 30px; /* Adjust as needed */
+    z-index: 1001; /* Ensure it stays on top */
+}
+
+/* Style for the logo image */
+#logo {
+    width: 100px; /* Adjust size as needed */
+    height: auto;
+}
+
+#logo a:hover{
+    
+}

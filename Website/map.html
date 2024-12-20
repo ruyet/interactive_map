@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Map of Eindhoven</title>
+    <!-- CSS link -->
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+    <!-- Logo -->
+<div id="logo-container">
+    <img src="img/18SEPTEMBERLOGO.png" alt="Logo" id="logo" style="vertical-align: middle;">    <a href="index.html" style="cursor: pointer;margin-left: 25px;"><strong>HOME</strong></a>
+
+
+</div>
+
+    <!-- Container for the map and legend -->
+    <div id="main-container">
+        <!-- Container for the map, which we will probably remove afterwards. This is just for testing purposes -->
+        <div id="map-container">
+            <div id="map">
+                <!-- SVG map of Eindhoven -->
+                <img src="img/eindhoven_map_final.svg" alt="Eindhoven Map" id="svg-map" />
+                <!-- JavaScript to add markers to the map -->
+                <script>
+                    // Array of marker data
+                    const markers = [{
+                        // Per array, the x and y location of the marker, content and more details (for larger popup). At the end also the coordinates for google maps
+                        x: 372,
+                        y: 140,
+                        content: "<strong>Miel Andriesse en Tanja Wolterbeek</strong>",
+                        detailedContent: `
+                        <div class="content">
+                            <div class="Featured_Content">
+                                <div class="Featured_Container">
+                                    <iframe class="video" src="https://www.youtube.com/embed/4S_i2tP9f0E?si=nEqGiIqlxF6uN_fm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                            <div class="Article_Content_Box">
+                                <div class="bar"></div>
+                                <div class="Article_Content">
+                                    <article>
+                                        <h2>
+                                            <span class="Article_Heading">Het levensverhaal van Miel Andriesse en Tanja Wolterbeek</span>
+                                        </h2>
+                                        <br>
+                                        <div>
+                                            <img src="IMG/MielAndriesseAndMother.png" class="articleImg" alt="">
+                                        </div>
+                                        <p class="Article_Text">
+                                            <b>Tanja Wolterbeek, <br> 
+                                                dochter van NSB-er en SD-er. <br><br>Miel Andriesse,
+                                                <br> Holocaust overlever</b>
+                                        </p><br><br>
+                                        
+                                        <p class="Article_Text">Miel Andriesse, who lost his Jewish parents in World War II, and Tanja Wolterbeek, whose father collaborated with the Germans, regularly give lectures together despite their painful histories. Miel, 75, was hidden during the war but lost nearly his entire family, while Tanja, 72, grapples with guilt over her father's actions. They aim to show that children are not responsible for their parents' deeds and to raise awareness about the war's lasting impact. Miel recently visited Auschwitz-Birkenau, where his parents were killed, while Tanja continues to seek the truth about her father's past. Despite their emotional struggles, they work together to promote reconciliation and peace.
+                                        <div>
+                                            <img src="IMG/fatherTanyaArrested.png" class="ArticleImg2" alt="">
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>`,
+                        location: "51.4531245,5.4571589",
+                        image: "img/marker_video.png"
+                    }, {
+                        x: 695,
+                        y: 434,
+                        content: "<strong>Helmut Loewenstein</strong>",
+                        detailedContent: `
+                        <div class="content">
+                            <div class="Featured_Content">
+                                <div class="Featured_Container">
+                                    
+                                </div>
+                            </div>
+                            <div class="Article_Content_Box">
+                                <div class="bar"></div>
+                                <div class="Article_Content">
+                                    <article>
+                                        <h2>
+                                            <span class="Article_Heading">Helmut en de Struikelsteen</span>
+                                        </h2>
+                                        <br>
+                                        <div>
+                                            <img src="IMG/helmut.jpg" class="articleImgHelmut" alt="">
+                                        </div>
+                                        <p class="Article_Text">
+                                            <b>Helmut Loewenstein, <br> 
+                                                1934-1943 <br><br>Een verhaal van Linda Amendt</b>
+                                        </p><br><br>
+                                        
+                                        <p class="Article_Text">Ella, een bijna twaalfjarige modekoningin, wilde nog even langs Pull & Bear vanwege de SALE, maar ging uiteindelijk met haar moeder naar Bakker Bart. Terwijl ze daar waren, vond Ella een euromunt op de grond en ontdekte ze struikelstenen voor het gebouw. Ella wist van deze herdenkingsstenen door verhalen van haar moeder over de Tweede Wereldoorlog en de Jodenvervolging. Ze las de namen op de stenen, waaronder die van de negenjarige Helmut, en voelde een diepe connectie met de jongen.</p>
+                                        <br><br>
+                                        <p class="Article_Text">Plotseling werd Ella naar binnen getrokken door een mysterieuze kracht en bevond ze zich in een andere tijd, tijdens de oorlog. Ze ontmoette Helmut en zijn broertje Rolf en beleefde het bombardement van 6 december 1942 mee, waarna ze met hen vluchtte naar een onderduikadres op een boerderij. In deze angstige en verwarde toestand zag ze hoe het gezin uit elkaar werd gerukt en hoorde ze verhalen over verraad en deportatie. Uiteindelijk werd Helmut weggevoerd door nazi’s, en Ella raakte steeds meer verstrikt in de verschrikkingen van de oorlog.
+                                             <br><br> Ella ontwaakte in de klas, diep onder de indruk van haar droom en de geschiedenis van Helmut. Ze las in haar geschiedenisboek over de tragische gebeurtenissen die Helmut en zijn familie hadden doorgemaakt, en besefte dat Helmut op 19 november 1943 in Auschwitz was vermoord. Deze ontdekking raakte haar diep en bracht haar tot tranen. Na school rende ze naar de plek van de struikelstenen, waar ze afscheid nam van Helmut met een belofte hem nooit te vergeten.
+                                            <br><br>
+                                            Ella's ervaring met de struikelstenen en de tragische geschiedenis van Helmut bracht haar een diepe waardering voor de slachtoffers van de Holocaust en een blijvende herinnering aan de verschrikkingen van de oorlog. Ze realiseerde zich de belangrijke taak om de herinnering aan hen levend te houden, zodat hun verhalen niet vergeten worden.
+                                        </p>
+                                        <div>
+                                            <img src="IMG/helmutsteen.jpeg" class="ArticleImg2" alt="">
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>`,
+                        location: "51.4399361,5.4721601",
+                        image: "img/marker_image.png"
+                    }, {
+                        x: 957,
+                        y: 686,
+                        content: "<strong>Henny Peeks</strong>",
+                        detailedContent: `
+                        <div class="content">
+                            <div class="Featured_Content">
+                                <div class="Featured_Container">
+                                </div>
+                            </div>
+                            <div class="Article_Content_Box">
+                                <div class="bar"></div>
+                                <div class="Article_Content">
+                                    <article>
+                                        <h2>
+                                            <span class="Article_Heading">The story of Henny Peeks</span>
+                                        </h2>
+                                        <br>
+                                        <div>
+                                            <img src="IMG/henny.jpg" class="articleImg" alt="">
+                                        </div>
+                                        <p class="Article_Text">
+                                            <b>Henny Peeks<br> 
+                                                1906-1975</b>
+                                        </p><br><br>
+                                        
+                                        <p class="Article_Text">Henny Peeks, born on April 1, 1906, in Gieten, lost her mother at age three. She worked as a nurse in Spain during the Spanish Civil War in the 1930s and returned to the Netherlands in 1939. During World War II, Henny worked at the Dommelhuis in Eindhoven, a shelter for Jewish boys, and joined the resistance, helping Jewish people in hiding. Arrested by the Sicherheitsdienst on October 13, 1943, she was deported to Vught and then Ravensbrück. She survived and returned to the Netherlands in July 1945. Henny is remembered for her bravery and assistance to Jews during the war, earning her a place in Yad Vashem's database. She died on July 17, 1975, in Amsterdam, and in 2022, her note from the deportation train was given to the National Monument Kamp Vught by the Voogd family's daughter.
+                                        
+                                    </article>
+                                </div>
+                            </div>
+                        </div>`,
+                        location: "51.4303965,5.4922026",
+                        image: "img/marker_written.png"
+                    }, {
+                        x: 475,
+                        y: 745,
+                        content: "<strong>Maurice Witsema</strong>",
+                        detailedContent: `
+                        <div class="content">
+                            <div class="Featured_Content">
+                                <div class="Featured_Container">
+                                    <iframe class="video" src="https://www.youtube.com/embed/11-3sTF38FQ?si=_NSGz2A6Lp2u7eRd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>                                </div>
+                            </div>
+                            <div class="Article_Content_Box">
+                                <div class="bar"></div>
+                                <div class="Article_Content">
+                                    <article>
+                                        <h2>
+                                            <span class="Article_Heading">The story of Maurice Witsema</span>
+                                        </h2>
+                                        <br>
+                                        <div>
+                                            <img src="IMG/maurice.jpg" class="articleImgMaurice" alt="">
+                                        </div>
+                                        <p class="Article_Text">
+                                            <b>Maurice Witsema <br> 
+                                                1929-2018</b>
+                                        </p><br><br>
+                                        
+
+                                        <p class="Article_Text">Maurits Louis Witsema, born on May 2, 1929, in Eindhoven, had a childhood filled with outdoor play, scouting, and family bike trips to Belgium. His family's life changed drastically during World War II due to antisemitic rules and the arrest of his father and uncle. In 1942, Maurice had to attend a Jewish high school and wear a star. Facing deportation, his family went into hiding with several families until Eindhoven was liberated in 1944. Post-war, Maurice resumed his education, worked in various countries, and eventually returned to the Netherlands, where he ran his own business until retirement in 2014. Maurice, who married twice, passed away on July 28, 2018, and was buried in the Jewish cemetery in Eindhoven. His life story reflects survival and resilience amidst the war's horrors.
+                                        </p>
+                                        <div>
+                                            <img src="IMG/bank.jpg" class="ArticleImg2" alt="">
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>`,
+                        location: "51.4298437,5.4649893",
+                        image: "img/marker_interview.png"
+                    }, {
+                        x: 696,
+                        y: 639,
+                        content: "<strong>Anne Frank monument</strong>",
+                        detailedContent: `
+                        <div class="content">
+                            <div class="Featured_Content">
+                                <div class="Featured_Container">
+                                </div>
+                            </div>
+                            <div class="Article_Content_Box">
+                                <div class="bar"></div>
+                                <div class="Article_Content">
+                                    <article>
+                                        <h2>
+                                            <span class="Article_Heading">Anne Frank Plantsoen</span>
+                                        </h2>
+                                        <br>
+                                        <div>
+                                            <img src="IMG/annefrank.jpg" class="articleImgAnne" alt="">
+                                        </div>
+                                        <p class="Article_Text">
+                                            <b>Anne Frank<br> 
+                                                1929-1945</b>
+                                        </p><br><br>
+                                        
+                                        <p class="Article_Text">
+                                            Het monument ‘Anne Frank’ in Eindhoven is opgericht ter nagedachtenis aan de 304 joodse mannen, vrouwen en kinderen uit de gemeente die tijdens de Tweede Wereldoorlog door de bezetter zijn vervolgd en omgebracht. Het gedenkteken is een herinnering aan en een waarschuwing tegen discriminatie en vervolging van bepaalde bevolkingsgroepen.  
+                                            <br><br>
+                                        <p class="Article_Text">
+                                            Het 15-jarige joodse meisje Anne Frank verpersoonlijkt al de ellende die miljoenen joden tijdens de Tweede Wereldoorlog is aangedaan. Toen in 1942 de eerste joden in Nederland een oproep kregen, besloot Otto Frank met zijn gezin onder te duiken. Met hulp van twee medewerkers werd in het Achterhuis aan de Prinsengracht 263 in Amsterdam een onderduikplaats ingericht. Van 6 juli 1942 tot en met 4 augustus 1944 hebben de familie Frank, de familie Van Pels en de tandarts Frits Pfeffer hier ondergedoken gezeten. Een angstige en benauwende tijd, waarin het tienermeisje Anne Frank een dagboek bijhield.                                             
+                                            <br><br> 
+                                            Hierin schreef zij niet alleen haar intieme gedachten en overpeinzingen op, maar probeerde zij ook het dagelijkse leven in het Achterhuis en het nieuws van buiten te beschrijven. Een uniek document, dat mensen over de hele wereld heeft aangegrepen. Het Achterhuis is een wereldwijde bestseller geworden. Het levensverhaal van Anne Frank getuigt hoe gewone mensen het slachtoffer zijn geworden van racisme en genocide. Anne Frank heeft hiermee de ‘Endlösung’ een stem en gezicht gegeven.
+                                            Het monument is onthuld op 4 mei 1990 door burgemeester J.A. van Kemenade, in het kader van ‘aktiviteiten tegen racisme, fascisme en discriminatie’.
+                                        </p>
+                                        
+                                    </article>
+                                </div>
+                            </div>
+                        </div>`,
+                        location: "51.4319544,5.4757788",
+                        image: "img/marker_written.png"
+                    }, {
+                        x: 826,
+                        y: 509,
+                        content: "<strong>Kunstwerk Loom Light</strong>",
+                        detailedContent: `
+                        <div class="content">
+                            <div class="Featured_Content">
+                                <div class="Featured_Container">
+                                    
+                                </div>
+                            </div>
+                            <div class="Article_Content_Box">
+                                <div class="bar"></div>
+                                <div class="Article_Content">
+                                    <article>
+                                        <h2>
+                                            <span class="Article_Heading">Loom Light Monument</span>
+                                        </h2>
+                                        <br>
+                                        <div>
+                                            <img src="IMG/loomlight2.png" class="articleImgLoomLight" alt="">
+                                        </div>
+                                        <p class="Article_Text">
+                                            <b>NRE-terrein</b>
+                                        </p><br><br>
+                                        
+                                        <p class="Article_Text">Het lichtmonument "Loom Light" van kunstenaar Titia Ex op het NRE-terrein in Eindhoven eert verzetsheld Jan Zwartendijk en andere onzichtbare verzetshelden uit de regio. Dit interactieve kunstwerk, dat de vrijheid viert, heeft een indrukwekkende omvang en verandert van vorm en kleur afhankelijk van de tijd van de dag en de positie van de toeschouwer. Overdag weerspiegelt het zonlicht, terwijl het 's avonds een lichtspel creëert dat doet denken aan de Chanoekia, en symboliseert het de onzichtbare hand die levens redde.</p>
+                                        <br><br>
+                                        <p class="Article_Text">Jan Zwartendijk, Philips-directeur en plaatsvervangend consul in Litouwen tijdens de Tweede Wereldoorlog, redde Joodse vluchtelingen door hen visa voor Curaçao te verstrekken. Zijn samenwerking met de Japanse ambassadeur Chiune Sugihara creëerde een vluchtroute voor vele Joden die voor hun leven vreesden na de Duitse inval in Polen en de Russische annexatie van Litouwen.
+                                             <br><br> "Loom Light" is een dynamisch monument dat de historische betekenis van Zwartendijk’s daden weerspiegelt en een esthetische ervaring biedt die aanzet tot reflectie. Het lichtmonument symboliseert het offer en de energie van degenen die zich verzetten, en nodigt de kijker uit om de vele lagen en betekenissen ervan te ontdekken.
+                                            
+                                        </p>
+                                        <div>
+                                            <img src="IMG/loomlight1.jpg" class="ArticleImg2" alt="">
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>`,
+                        location: "51.4375277,5.4838047",
+                        image: "img/marker_image.png"
+                    }, {
+                        x: 633,
+                        y: 426,
+                        content: "<strong>Monument Operation Oyster</strong>",
+                        detailedContent: `
+                        <div class="content">
+                            <div class="Featured_Content">
+                                <div class="Featured_Container">
+                                </div>
+                            </div>
+                            <div class="Article_Content_Box">
+                                <div class="bar"></div>
+                                <div class="Article_Content">
+                                    <article>
+                                        <h2>
+                                            <span class="Article_Heading">Osyter Monument</span>
+                                        </h2>
+                                        <br>
+                                        <div>
+                                            <img src="IMG/oyster.jpg" class="articleImgOyster" alt="">
+                                        </div>
+                                        <p class="Article_Text">
+                                            <b>Mathildelaan</b>
+                                        </p><br><br>
+                                        
+                                        <p class="Article_Text">
+                                            Het monument ‘Operation Oyster’ in Eindhoven herinnert aan ongeveer 150 burgerslachtoffers van het Britse bombardement op Eindhoven op 6 december 1942, het‘Sinterklaasbombardement’. 
+                                            <br><br>
+                                            Het bombardement werd uitgevoerd bij daglicht en was gericht op de Philipsfabrieken op Strijp S en aan de Emmasingel. In deze fabrieken werden in de oorlog radiobuizen voor de Duitsers vervaardigd. Veel van de bommen van de de Royal Air Force troffen echter andere doelen: winkels, woningen, kerken en het Binnenziekenhuis.
+                                            Dit bombardement werd uitgevoerd door 94 vliegtuigen van de Royal Air Force. Zestien toestellen keerden niet terug.
+                                            <br><br>
+                                        <p class="Article_Text">
+                                            Het monument in een initiatief van Eindhovenaar Anton van de Heijde, geassisteerd door Jeff Haneveer. Beiden woonden destijds aan de Frederiklaan, waar ze in 1942 ooggetuigen waren van het bombardement.
+                                            <br><br> 
+                                            Het monument in op 6 december 2011 onthuld in aanwezigheid van veel overlevenden, nabestaanden en vertegenwoordigers van de gemeente, provincie en de Franse en Britse ambassade.</p>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>`,
+                        location: "51.4409767,5.4717994",
+                        image: "img/marker_image.png"
+                    }, ];
+
+                    // Loop through each marker and create HTML elements
+                    markers.forEach((markerData) => {
+                        // Creates a new div for each marker, with the class marker
+                        const marker = document.createElement("div");
+                        marker.classList.add("marker");
+                        // Setting the left and top position of the marker
+                        marker.style.left = `${markerData.x}px`;
+                        marker.style.top = `${markerData.y}px`;
+                        // Setting the background image of the marker
+                        marker.style.backgroundImage = `url(${markerData.image})`;
+                        // Stores the content, detailedContent and location as a data attribute
+                        marker.dataset.content = markerData.content;
+                        marker.dataset.detailedContent = markerData.detailedContent;
+                        marker.dataset.location = markerData.location;
+
+                        // Makes a popup div with the popup class naming
+                        const popup = document.createElement("div");
+                        popup.classList.add("popup");
+                        popup.innerHTML = `${markerData.content} <div class="google-maps-link"><img src="img/directions.png" alt="Google Maps Icon">Directions</div>`;
+
+                        // Add event listener to open Google Maps on click
+                        // Finds the Google Maps link within the popup
+                        const googleMapsLink = popup.querySelector(".google-maps-link");
+                        // Add event listener to the link
+                        googleMapsLink.addEventListener("click", (e) => {
+                            // Prevents the click from bubbling up to higher-level elements
+                            e.stopPropagation();
+                            // Opens the link in a new tab
+                            const url = `https://www.google.com/maps/dir/?api=1&destination=${markerData.location}`;
+                            window.open(url, "_blank");
+                        });
+
+                        // Add event listener to show detailed popup on click
+                        marker.addEventListener("click", (e) => {
+                            // Prevents the click from bubbling up to higher-level elements
+                            e.stopPropagation();
+                            // Sets the content of the large popup to the detailed description
+                            largePopupContent.innerHTML = markerData.detailedContent;
+                            // Displays the large popup
+                            largePopup.style.display = "block";
+                            largePopupClose.style.display = "block"; // Show the close button
+                        });
+
+                        // Append the popup to the marker
+                        marker.appendChild(popup);
+                        // Append the marker to the map
+                        map.appendChild(marker);
+                    });
+                </script>
+            </div>
+        </div>
+
+        <!-- Legend container -->
+        <div class="legend-container">
+            <div class="legend-item">
+                <div class="legend-color" style="background: #89b169"></div>
+                <span class="legend-text">Video content</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #6d4301"></div>
+                <span class="legend-text">Image content</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #a7a44e"></div>
+                <span class="legend-text">Written content</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #66aab3"></div>
+                <span class="legend-text">Interview content</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Large popup for detailed marker information -->
+    <div id="large-popup">
+        <div id="large-popup-content">
+            <!-- Content of popups will be added here -->
+        </div>
+    </div>
+    <!-- COntainer for zoom in/out buttons. -->
+    <div class="zoom-function-container">
+        <div class="zoom-button-container">
+            <button id="zoomIn-button">+</button>
+            <button id="zoomOut-button">-</button>
+        </div>
+
+        <span class="close-button" id="large-popup-close">&times;</span>
+
+        <!-- JavaScript to handle large popup close functionality -->
+        <script src="js/scripts.js"></script>
+</body>
+
+</html>
